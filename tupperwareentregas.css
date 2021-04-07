@@ -139,6 +139,11 @@ button:hover {
     background-color: #606582;
 }
 
+.logoInit {
+    margin-left: 90%;
+    margin-top: 20%;
+}
+
 @media only screen and (max-width: 600px) {
     .bodyPage:hover {
         margin-left: -2%;
