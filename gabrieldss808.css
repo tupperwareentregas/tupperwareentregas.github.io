@@ -1,0 +1,167 @@
+.bodyPage {
+    background-color: #282A36;
+    border-radius: 11px;
+    box-shadow: 2px 2px 2px 2px black;
+    font-family: ROBOTO;
+    color: #fff;
+    margin-bottom: 27.5px;
+    margin-top: 27.5px;
+    transition: 0.7s;
+}
+
+.bodyPage:hover {
+    margin-left: -2%;
+    margin-right: -2%;
+    margin-top: -1%;
+    box-shadow: 2px 2px 2px 2px #131313;
+    transition: 0.7s;
+}
+
+.bodyContent {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+.bodyContentList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    font-size: 25px;
+    margin-left: 25px;
+}
+
+.menuSuperior {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    height: 27px;
+    background-color: #282923;
+}
+
+.redDot {
+    height: 17px;
+    width: 17px;
+    background-color: #FF5F58;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.redDot:hover {
+    background-color: #FF8B58;
+}
+
+.yellowDot {
+    height: 17px;
+    width: 17px;
+    background-color: #FFBD2E;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.yellowDot:hover {
+    background-color: #FFD72E;
+}
+
+.greenDot {
+    height: 17px;
+    width: 17px;
+    background-color: #28CA42;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.greenDot:hover {
+    background-color: #31FF60;
+}
+
+body {
+    background-color: #383A59;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+
+p {
+    padding-left: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFBD2E;
+}
+
+hr {
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 100%;
+    margin-right: 25px !important;
+}
+
+a:hover {
+    color: #28CA42;
+}
+
+img {
+    margin-top: 15px;
+    border-radius: 15px;
+    margin-left: 25px
+}
+
+h2 {
+    padding-left: 25px;
+}
+
+.buttonGroup {
+    margin-top: 25px;
+}
+
+button {
+    background-color: #282A36;
+    border-style: dotted;
+    border-radius: 10px;
+    height: 45px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 30px;
+}
+
+button:hover {
+    background-color: #606582;
+}
+
+@media only screen and (max-width: 600px) {
+    .bodyPage:hover {
+        margin-left: -2%;
+        margin-right: -2%;
+        margin-top: -1%;
+        box-shadow: 2px 2px 2px 2px #131313;
+        transition: 0.7s;
+    }
+    .bodyContent {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    button {
+        height: 70px;
+        color: #fff;
+        margin-bottom: 10px;
+        margin-left: 25px;
+        font-size: 27px;
+    }
+    body {
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 7%;
+        justify-content: center;
+    }
+}
