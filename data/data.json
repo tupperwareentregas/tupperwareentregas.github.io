@@ -7,8 +7,8 @@
         }]
     }],
     "entregasBase": [
-        { "CodigoConsultora": "1234", "Nome": "Consultora", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021", "observacao": "", "status": "" },
-        { "CodigoConsultora": "12345", "Nome": "Consultora2", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021", "observacao": "", "status": "" }
+        { "NumeroSequencial": "", "CodigoConsultora": "1234", "Nome": "Consultora", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021", "observacao": "", "status": "" },
+        { "NumeroSequencial": "", "CodigoConsultora": "12345", "Nome": "Consultora2", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021", "observacao": "", "status": "" }
     ],
     "entregasVisualizacao": [
         { "CodigoConsultora": "1234", "Nome": "Consultora", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "semana": "152021", "observacao": "Cara Não Sei", "status": "Pendente" },

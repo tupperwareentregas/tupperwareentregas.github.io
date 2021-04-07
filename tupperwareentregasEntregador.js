@@ -45,3 +45,16 @@ function searchDelivery() {
         });
     }
 }
+
+function upWorksheet() {
+
+    $(".upWorksheet").show()
+
+    $("html, body").animate({
+        scrollTop: ($(".upWorksheet").first().offset().top)
+    }, 1000)
+}
+
+function CancelUpWorksheet() {
+    $(".upWorksheet").hide()
+}
