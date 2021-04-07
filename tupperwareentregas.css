@@ -32,6 +32,7 @@
 
 .deliveryCard {
     margin-left: 25px;
+    margin-right: 25px !important;
     margin-top: 25px;
     background: linear-gradient(#0CE7FE, #4DADFE) !important;
     border-radius: 10px;
@@ -155,5 +156,8 @@ button:hover {
     }
     .cardInput {
         width: 60%;
+    }
+    .deliveryCard {
+        width: 85%;
     }
 }
