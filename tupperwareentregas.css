@@ -61,7 +61,7 @@
     border-radius: 7px;
     font-family: ROBOTO;
     color: #36A172;
-    padding: 5px;
+    padding: 1px;
     width: 40%;
 }
 
@@ -72,6 +72,17 @@
     font-family: ROBOTO;
     font-size: 25px;
     color: #36A172;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 .InputCard:focus {
@@ -167,10 +178,10 @@ button:hover {
         justify-content: center;
     }
     .logoInit {
-        margin-top: 40%;
+        margin-top: 55%;
     }
     .cardInput {
-        width: 60%;
+        width: 90%;
     }
     .deliveryCard,
     .deliveryCardButton {

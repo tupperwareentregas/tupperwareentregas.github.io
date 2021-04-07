@@ -27,8 +27,8 @@ function searchDelivery() {
 
                 $(".StatsField").text("Status: " + deliveryItem[0].status);
                 $(".NameField").text("Nome Consultor(a): " + deliveryItem[0].Nome);
-                $(".CodeField").text("Nome Consultor(a): " + deliveryItem[0].CodigoConsultora);
-                $(".WeekField").text("Semana: " + deliveryItem[0].semana)
+                $(".CodeField").text("Codigo: " + deliveryItem[0].CodigoConsultora);
+                $(".WeekField").text("Semana: " + deliveryItem[0].Semana)
                 $(".DeliveryDateField").text("Data de Entrega: " + deliveryItem[0].DataEntrega)
                 $(".HourDeliveryField").text("Hora de Entrega: " + deliveryItem[0].HorarioEntrega)
                 $(".NameRecipientField").text("Nome de quem Recebeu: " + deliveryItem[0].NomeRecebidor)

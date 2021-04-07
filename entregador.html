@@ -7,6 +7,8 @@ tupperwareentregas.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
 	<script src="tupperwareentregasEntregador.js"></script>
 	<link rel="icon" href="icon.png">
 	<title>Nilson Entregas</title>
@@ -56,7 +58,10 @@ tupperwareentregas.css">
 			<h2></h2>
 			<div class="cardInput">
 				<h4>Subir Planilha</h4>
-				<input type="file" class="InputCard WorksheetInput" title="Selecione o arquivo">
+				<input type="file" id="file-upload" class="InputCard WorksheetInput" title="Selecione o arquivo" onchange="alterDescriptions();">
+				<label for="file-upload" class="custom-file-upload">
+				Escolher arquivo
+				</label>
 				<br>
 				<button onclick="finishUpWorksheet()">Enviar</button>
 				<button onclick="CancelUpWorksheet()">Cancelar</button>
@@ -64,6 +69,9 @@ tupperwareentregas.css">
 		</center>
 	</div>
 </div>
+<script>
+	document.getElementById('file-upload').addEventListener('change', handleFileSelect, false);
+</script>
 <script>
 initAnimate();
 </script>
