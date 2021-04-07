@@ -1,5 +1,5 @@
 .bodyPage {
-    background-color: #282A36;
+    background-color: #48D497;
     border-radius: 11px;
     box-shadow: 2px 2px 2px 2px black;
     font-family: ROBOTO;
@@ -22,6 +22,7 @@
     flex-direction: row;
     margin-top: 15px;
     padding-bottom: 15px;
+    height: 500px
 }
 
 .bodyContentList {
@@ -82,10 +83,10 @@
 }
 
 body {
-    background-color: #383A59;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 5%;
+    background-color: #ffffff;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
 }
 
 p {

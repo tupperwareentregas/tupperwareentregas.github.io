@@ -1,0 +1,17 @@
+{
+    "entregadores": [{
+        "nilsonDomingos": [{
+            "nome": "Nilson Domingos",
+            "rotas": ["8", "10", "5"],
+            "senha": "nilson123"
+        }]
+    }],
+    "entregasBase": [
+        { "CodigoConsultora": "1234", "Nome": "Consultora", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021" },
+        { "CodigoConsultora": "12345", "Nome": "Consultora2", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "DocumentoRecebidor": "", "rota": "8", "semana": "152021" }
+    ],
+    "entregasVisualizacao": [
+        { "CodigoConsultora": "1234", "Nome": "Consultora", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "semana": "152021" },
+        { "CodigoConsultora": "12345", "Nome": "Consultora2", "DataEntrega": "", "HorarioEntrega": "", "NomeRecebidor": "", "semana": "152021" }
+    ]
+}
