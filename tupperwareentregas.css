@@ -53,6 +53,9 @@
     height: 25px;
     width: 70%;
     border-color: #36A172;
+    font-family: ROBOTO;
+    font-size: 25px;
+    color: #36A172;
 }
 
 .InputCard:focus {
