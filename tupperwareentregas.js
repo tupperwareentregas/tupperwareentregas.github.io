@@ -1,13 +1,12 @@
-$(document).on("ready", function() {
+function initAnimate() {
 
-    $("html, .logoInit").animate({
-        "margin-left": "0px"
-    }, 2000);
-
-    $(".logoInit").hide();
-
-    $(".bodyPage").show(400);
-});
+    $(".logoInit").animate({
+        "margin-left": "40%"
+    }, 1500, function() {
+        $(".logoInit").hide();
+        $(".bodyPage").show(100);
+    });
+}
 
 function showWindow(classText) {
 
