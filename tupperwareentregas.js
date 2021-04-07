@@ -4,20 +4,45 @@ function initAnimate() {
         "margin-left": "40%"
     }, 1500, function() {
         $(".logoInit").hide();
-        $(".bodyPage").show(100);
+        $(".HomeScreen").show(100);
     });
 }
 
-function showWindow(classText) {
+function searchDelivery() {
 
-    $("." + classText).show()
+    var dataJson = {}
 
-    $("html, body").animate({
-        scrollTop: ($("." + classText).first().offset().top)
-    }, 2000);
-}
+    if ($(".codigoConsultora").val() != "") {
 
-function closeWindows(classText) {
+        $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+            dataJson = JSON.parse(data).entregasVisualizacao;
 
-    $("." + classText).hide(1000);
+            var deliveryItem = dataJson.filter(function(delivery) {
+                return delivery.CodigoConsultora == $(".codigoConsultora").val();
+            });
+
+            if (deliveryItem.length > 0) {
+
+                $(".deliveryView").show(200);
+
+                $(".StatsField").text("Status: " + deliveryItem[0].status);
+                $(".NameField").text("Nome Consultor(a): " + deliveryItem[0].Nome);
+                $(".CodeField").text("Nome Consultor(a): " + deliveryItem[0].CodigoConsultora);
+                $(".WeekField").text("Semana: " + deliveryItem[0].semana)
+                $(".DeliveryDateField").text("Data de Entrega:" + deliveryItem[0].DataEntrega)
+                $(".HourDeliveryField").text("Hora de Entrega:" + deliveryItem[0].HorarioEntrega)
+                $(".NameRecipientField").text("Nome de quem Recebeu:" + deliveryItem[0].NomeRecebidor)
+                $(".ObsField").text("Observação:" + deliveryItem[0].observacao)
+
+                $("html, body").animate({
+                    scrollTop: ($(".deliveryView").first().offset().top)
+                }, 2000)
+            }
+
+
+        });
+
+    }
+
+
 }

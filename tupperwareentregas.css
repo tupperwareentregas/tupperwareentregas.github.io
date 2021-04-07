@@ -20,7 +20,6 @@
     flex-direction: row;
     margin-top: 15px;
     padding-bottom: 15px;
-    height: 500px
 }
 
 .bodyContentList {
@@ -31,18 +30,36 @@
     font-size: 25px;
 }
 
+.deliveryCard {
+    margin-left: 25px;
+    margin-top: 25px;
+    background: linear-gradient(#0CE7FE, #4DADFE) !important;
+    border-radius: 10px;
+    padding: 7px;
+    width: 60%;
+    text-align: left;
+}
+
 .cardInput {
     background-color: #ffffff;
     border-radius: 7px;
     font-family: ROBOTO;
     color: #36A172;
     padding: 5px;
-    width: 25%;
+    width: 40%;
 }
 
 .InputCard {
     height: 25px;
     width: 70%;
+    border-color: #36A172;
+}
+
+.InputCard:focus {
+    outline: none;
+    /* Remove default outline and use border or box-shadow */
+    box-shadow: 0 0 0 2px #0CE7FE;
+    /* Full freedom. (works also with border-radius) */
 }
 
 body {
@@ -63,7 +80,7 @@ a {
 
 hr {
     height: 4px;
-    background-color: #fff;
+    background-color: #36A172;
     border-radius: 4px;
     width: 100%;
     margin-right: 25px !important;
@@ -91,7 +108,7 @@ button {
     background-color: #36A172;
     border-style: none;
     border-radius: 5px;
-    height: 35px;
+    height: 40px;
     margin-bottom: 10px;
     margin-top: 10px;
     color: #fff;

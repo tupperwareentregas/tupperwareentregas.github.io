@@ -13,20 +13,41 @@ tupperwareentregas.js"></script>
 	<title>Nilson Entregas</title>
 </head>
 <body>
-<div class="bodyPage" style="display: none;">
+<div class="bodyPage HomeScreen" style="display: none;">
 	<div class="bodyContentList" id="one">
 		<center>
 		<img src="van-de-surf.png" alt="van" height="200">
-		<h2>Tuppeware Girassol Entregas</h2>
+		<h2>Tuppeware Nilson Entregas</h2>
 		<div class="cardInput">
 		<h4>Codigo da Consultora</h4>
 		<input type="text" class="InputCard codigoConsultora">
-		<button onclick="">Buscar</button>
+		<br>
+		<button onclick="searchDelivery()">Buscar</button>
 		</div>
 		</center>
 	</div>
 </div>
 <img class="logoInit" src="van-de-surf.png" alt="van" height="100">
+<div class="bodyPage deliveryView" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<div class="deliveryCard">
+				<h2 class="StatsField">Status: Pendente</h2>
+			</div>
+			<div>
+				<div class="deliveryCard">
+					<h4 class="NameField">Nome Consultor(a): Gabriel Da Silva Souza</h4>
+					<h4 class="CodeField">Codigo: 1234</h4>
+					<h4 class="WeekField">Semana: 34/2021</h4>
+					<h4 class="DeliveryDateField">Data de Entrega:</h4>
+					<h4 class="HourDeliveryField">Hora de Entrega:</h4>
+					<h4 class="NameRecipientField">Nome de quem Recebeu:</h4>
+					<h4 class="ObsField">Observação:</h4>
+				</div>
+			</div>
+		</center>
+	</div>
+</div>
 <script>
 initAnimate();
 </script>
