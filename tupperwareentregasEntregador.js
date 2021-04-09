@@ -231,3 +231,15 @@ function confirmDeliveryFinish() {
         uploadInGitHub(dataJson);
     });
 }
+
+
+function FinalReport() {
+    $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+        var dataJson = JSON.parse(data).entregasBase;
+
+        var opts = [{ sheetid: 'Planilha1', header: true }];
+        var result = alasql('SELECT * INTO XLSX("NilsonEntregas.xlsx",?) FROM ?', [opts, [dataJson]]);
+    })
+
+
+}
