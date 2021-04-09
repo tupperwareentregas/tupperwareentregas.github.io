@@ -41,7 +41,6 @@ function searchDelivery() {
                 alert("Codigo não encontrado!")
             }
 
-
         });
     }
 }

@@ -58,11 +58,12 @@
 
 .cardInput {
     background-color: #ffffff;
-    border-radius: 7px;
+    border-radius: 10px;
     font-family: ROBOTO;
     color: #36A172;
     padding: 1px;
-    width: 40%;
+    width: 60%;
+    text-align: center;
 }
 
 .InputCard {
@@ -71,6 +72,18 @@
     border-color: #36A172;
     font-family: ROBOTO;
     font-size: 25px;
+    color: #36A172;
+    text-align: center;
+}
+
+.InputCardForm {
+    height: 28px;
+    width: 60%;
+    border-color: #0CE7FE;
+    border-radius: 10px;
+    font-family: ROBOTO;
+    font-size: 25px;
+    text-align: center;
     color: #36A172;
 }
 

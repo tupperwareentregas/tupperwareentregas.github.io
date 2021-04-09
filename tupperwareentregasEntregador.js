@@ -48,6 +48,14 @@ function searchDelivery() {
     }
 }
 
+function finishDelivery() {
+    $(".finishDeliveryView").show()
+
+    $("html, body").animate({
+        scrollTop: ($(".finishDeliveryView").first().offset().top)
+    }, 1000)
+}
+
 function upWorksheet() {
 
     $(".upWorksheet").show()
@@ -164,4 +172,44 @@ function gitUpload(sha, DatajsonOnGit) {
         $(".custom-file-upload").text("Escolher arquivo")
         alert("Planilha Enviada");
     });
+}
+
+function searchDeliveryToFinish() {
+
+    var dataJson = {}
+    var date = new Date();
+
+    if ($(".numeroEntrega").val() != "") {
+
+        $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+            dataJson = JSON.parse(data);
+            var DataEHorario = new Date();
+            var DataAtual = DataEHorario.toLocaleString().split(" ")[0]
+            var HorarioAtual = DataEHorario.toLocaleString().split(" ")[1]
+
+            var deliveryItem = dataJson.entregasBase.filter(function(delivery) {
+                return delivery.NumeroSequencial == $(".numeroEntrega").val();
+            });
+
+            if (deliveryItem.length > 0) {
+
+                $(".entregarView").show(200);
+
+                $(".Number").text("Numero: " + deliveryItem[0].NumeroSequencial);
+                $(".NameField").text("Nome Consultor(a): " + deliveryItem[0].Nome);
+                $(".CodeField").text("Codigo: " + deliveryItem[0].CodigoConsultora);
+                $(".WeekField").text("Semana: " + deliveryItem[0].Semana)
+                $(".rote").text("Rota: " + deliveryItem[0].Rota)
+                $(".DeliveryDateField").text("Data de Entrega: " + DataAtual)
+                $(".HourDeliveryField").text("Hora de Entrega: " + HorarioAtual)
+
+                $("html, body").animate({
+                    scrollTop: ($(".entregarView").first().offset().top)
+                }, 1000)
+            } else {
+                alert("Codigo não encontrado!")
+            }
+
+        });
+    }
 }
