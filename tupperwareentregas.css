@@ -206,6 +206,8 @@ button:hover {
     }
     .deliveryCard,
     .deliveryCardButton {
-        width: 85%;
+        width: 75%;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
     }
 }
