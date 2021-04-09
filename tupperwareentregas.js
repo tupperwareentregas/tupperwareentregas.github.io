@@ -25,14 +25,15 @@ function searchDelivery() {
 
                 $(".deliveryView").show(200);
 
-                $(".StatsField").text("Status: " + deliveryItem[0].status);
-                $(".NameField").text("Nome Consultor(a): " + deliveryItem[0].Nome);
-                $(".CodeField").text("Codigo: " + deliveryItem[0].CodigoConsultora);
-                $(".WeekField").text("Semana: " + deliveryItem[0].Semana)
-                $(".DeliveryDateField").text("Data de Entrega: " + deliveryItem[0].DataEntrega)
-                $(".HourDeliveryField").text("Hora de Entrega: " + deliveryItem[0].HorarioEntrega)
-                $(".NameRecipientField").text("Nome de quem Recebeu: " + deliveryItem[0].NomeRecebidor)
-                $(".ObsField").text("Observação: " + deliveryItem[0].observacao)
+                $(".StatsField").text(deliveryItem[0].status);
+                $(".NameField").text(deliveryItem[0].Nome);
+                $(".CodeField").text(deliveryItem[0].CodigoConsultora);
+                $(".WeekField").text(deliveryItem[0].Semana);
+                $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao);
+                $(".DeliveryDateField").text(deliveryItem[0].DataEntrega);
+                $(".HourDeliveryField").text(deliveryItem[0].HorarioEntrega);
+                $(".NameRecipientField").text(deliveryItem[0].NomeRecebidor);
+                $(".ObsField").text(deliveryItem[0].observacao);
 
                 $("html, body").animate({
                     scrollTop: ($(".deliveryView").first().offset().top)

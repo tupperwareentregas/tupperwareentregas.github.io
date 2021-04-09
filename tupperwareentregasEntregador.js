@@ -129,7 +129,7 @@ function finishUpWorksheet() {
         var TemporaryJson = []
 
         for (var i = 0; i < Worksheet.length; i++) {
-            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "semana": Worksheet[i].semana, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "observacao": Worksheet[i].observacao });
+            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "observacao": Worksheet[i].observacao });
         }
 
         DatajsonOnGit.entregasVisualizacao = TemporaryJson
@@ -155,7 +155,7 @@ function gitUpload(sha, DatajsonOnGit) {
         "method": "PUT",
         "headers": {
             "Accept": "application/vnd.github.v3+json",
-            "Authorization": "token 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",
+            "Authorization": "token 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",
             "Content-Type": "application/json"
         },
         "data": JSON.stringify({
@@ -170,7 +170,7 @@ function gitUpload(sha, DatajsonOnGit) {
         $(".upWorksheet").hide(400);
         $(".WorksheetInput").val(null);
         $(".custom-file-upload").text("Escolher arquivo")
-        alert("Planilha Enviada");
+        alert("Upload Enviado");
     });
 }
 
@@ -202,6 +202,7 @@ function searchDeliveryToFinish() {
                 $(".rote").text(deliveryItem[0].Rota)
                 $(".DeliveryDateField").text(DataAtual)
                 $(".HourDeliveryField").text(HorarioAtual)
+                $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao)
 
                 $("html, body").animate({
                     scrollTop: ($(".entregarView").first().offset().top)
@@ -222,4 +223,41 @@ function cancelDeliveryFinish() {
 
 function confirmDeliveryFinish() {
 
+    var jsonToSend = {
+        "entregasBase": [{
+            "NumeroSequencial": $(".Number").text(),
+            "CodigoConsultora": $(".CodeField").text(),
+            "qtdeVolume": $(".qtdeVolume").val(),
+            "Previsao": $(".DeliveryPrevisionField").text(),
+            "Nome": $(".NameField").text(),
+            "DataEntrega": $(".DeliveryDateField").text(),
+            "HorarioEntrega": $(".HourDeliveryField").text(),
+            "NomeRecebidor": $(".NameRecipientField").val(),
+            "DocumentoRecebidor": $(".DocumentsRecipientField").val(),
+            "Rota": $(".rote").text(),
+            "Semana": $(".WeekField").text(),
+            "observacao": $(".ObsField").val(),
+            "status": "Entregue"
+        }],
+        "entregasVisualizacao": [{
+            "status": "Entregue",
+            "Nome": $(".NameField").text(),
+            "CodigoConsultora": $(".CodeField").text(),
+            "Semana": $(".WeekField").text(),
+            "DataEntrega": $(".DeliveryDateField").text(),
+            "HorarioEntrega": $(".HourDeliveryField").text(),
+            "NomeRecebidor": $(".NameRecipientField").val(),
+            "observacao": $(".ObsField").val()
+        }]
+    }
+
+    $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+
+        var dataJson = JSON.parse(data);
+
+        dataJson.entregasBase[parseInt($(".Number").text()) - 1] = jsonToSend.entregasBase[0];
+        dataJson.entregasVisualizacao[parseInt($(".Number").text()) - 1] = jsonToSend.entregasVisualizacao[0];
+
+        uploadInGitHub(dataJson);
+    });
 }
