@@ -155,7 +155,7 @@ function gitUpload(sha, DatajsonOnGit) {
         "method": "PUT",
         "headers": {
             "Accept": "application/vnd.github.v3+json",
-            "Authorization": "token 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",
+            "Authorization": "Basic dHVwcGVyd2FyZWVudHJlZ2FzOmdocF9qNHBzRXVhbzdPNjRwYlIwYjV4UWJtT1lvdXdDMUgzR0NhSjU=",
             "Content-Type": "application/json"
         },
         "data": JSON.stringify({
