@@ -195,13 +195,13 @@ function searchDeliveryToFinish() {
 
                 $(".entregarView").show(200);
 
-                $(".Number").text("Numero: " + deliveryItem[0].NumeroSequencial);
-                $(".NameField").text("Nome Consultor(a): " + deliveryItem[0].Nome);
-                $(".CodeField").text("Codigo: " + deliveryItem[0].CodigoConsultora);
-                $(".WeekField").text("Semana: " + deliveryItem[0].Semana)
-                $(".rote").text("Rota: " + deliveryItem[0].Rota)
-                $(".DeliveryDateField").text("Data de Entrega: " + DataAtual)
-                $(".HourDeliveryField").text("Hora de Entrega: " + HorarioAtual)
+                $(".Number").text(deliveryItem[0].NumeroSequencial);
+                $(".NameField").text(deliveryItem[0].Nome);
+                $(".CodeField").text(deliveryItem[0].CodigoConsultora);
+                $(".WeekField").text(deliveryItem[0].Semana)
+                $(".rote").text(deliveryItem[0].Rota)
+                $(".DeliveryDateField").text(DataAtual)
+                $(".HourDeliveryField").text(HorarioAtual)
 
                 $("html, body").animate({
                     scrollTop: ($(".entregarView").first().offset().top)

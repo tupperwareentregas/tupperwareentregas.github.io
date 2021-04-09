@@ -11,7 +11,7 @@ tupperwareentregas.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
 	<script src="tupperwareentregasEntregador.js"></script>
 	<link rel="icon" href="icon.png">
-	<title>Nilson Entregas</title>
+	<title>Nilson Entregador</title>
 </head>
 <body>
 <div class="bodyPage HomeScreen" style="display: none;">
@@ -36,28 +36,30 @@ tupperwareentregas.css">
 	<div class="bodyContentList" id="one">
 		<center>
 			<h2></h2>
-			<div class="cardInput">
-				<h4>Numero da Entrega</h4>
-				<input type="text" class="InputCard numeroEntrega">
-				<br>
-				<button onclick="searchDeliveryToFinish()">Buscar</button>
-				<button onclick="cancelDeliveryFinish()">Cancelar</button>
+			<div class="deliveryCard">
+				<center>
+					<h4>Numero da Entrega</h4>
+					<input type="text" class="InputCard numeroEntrega">
+					<br>
+					<button onclick="searchDeliveryToFinish()">Buscar</button>
+					<button onclick="cancelDeliveryFinish()">Cancelar</button>
+				</center>
 			</div>
 			<h2></h2>
 			<div class="entregarView" style="display: none;">
-				<div class="cardInput">
-					<h4 class="Number">Numero: </h4>
-					<h4 class="NameField">Nome Consultor(a): </h4>
-					<h4 class="CodeField">Codigo: </h4>
-					<h4 class="WeekField">Semana: </h4>
-					<h4 class="rote">Rota: </h4>
-					<h4 class="DeliveryDateField">Data de Entrega:</h4>
-					<h4 class="HourDeliveryField">Hora de Entrega:</h4>
-					<h4 class="NameRecipientField">Nome do Recebedor: </h4>
+				<div class="deliveryCard">
+					<h5>Numero: <x class="Number"></x></h5>
+					<h5>Nome Consultor(a): <x class="NameField"></x></h5>
+					<h5>Codigo: <x class="CodeField"></x></h5>
+					<h5>Semana: <x class="WeekField"></x></h5>
+					<h5>Rota: <x class="rote"></x></h5>
+					<h5>Data de Entrega: <x class="DeliveryDateField"></x></h5>
+					<h5>Hora de Entrega: <x class="HourDeliveryField"></x></h5>
+					<h5>Nome do Recebedor: <x class="NameRecipientField"></x></h5>
 					<input type="text" class="InputCardForm">
-					<h4 class="DocumentsRecipientField">Documento do Recebedor: </h4>
+					<h5 class="DocumentsRecipientField">Documento do Recebedor: </h5>
 					<input type="text" class="InputCardForm">
-					<h4 class="ObsField">Observação: </h4>
+					<h5 class="ObsField">Observação: </h5>
 					<input type="text" class="InputCardForm">
 					<br>
 					<button onclick="confirmDeliveryFinish()">Confirmar</button>
