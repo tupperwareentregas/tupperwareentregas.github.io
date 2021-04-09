@@ -213,3 +213,13 @@ function searchDeliveryToFinish() {
         });
     }
 }
+
+function cancelDeliveryFinish() {
+
+    $(".entregarView").hide(700);
+    $(".finishDeliveryView").hide(700);
+}
+
+function confirmDeliveryFinish() {
+
+}
