@@ -244,6 +244,7 @@ function confirmDeliveryFinish() {
             "Nome": $(".NameField").text(),
             "CodigoConsultora": $(".CodeField").text(),
             "Semana": $(".WeekField").text(),
+            "Previsao": $(".DeliveryPrevisionField").text(),
             "DataEntrega": $(".DeliveryDateField").text(),
             "HorarioEntrega": $(".HourDeliveryField").text(),
             "NomeRecebidor": $(".NameRecipientField").val(),
