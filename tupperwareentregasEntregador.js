@@ -168,16 +168,20 @@ function searchDeliveryToFinish() {
                     $(".DeliveryDateField").text(DataAtual)
                     $(".HourDeliveryField").text(HorarioAtual)
                     $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao)
+                    $(".qtdeVolume").val("");
+                    $(".NameRecipientField").val("");
+                    $(".DocumentsRecipientField").val("");
+                    $(".ObsField").val("");
 
                     $("html, body").animate({
                         scrollTop: ($(".entregarView").first().offset().top)
                     }, 1000)
                 } else {
-                    alert("Ja Entregue")
+                    alert("Ja Entregue");
                 }
 
             } else {
-                alert("Codigo não encontrado!")
+                alert("Código não encontrado!");
             }
 
         });
