@@ -66,7 +66,7 @@ var ExcelToJSON = function() {
             console.log(ex);
         };
 
-        reader.readAsBinaryString(file);
+        reader.readAsBinaryString(file, "UTF-8");
     };
 };
 
