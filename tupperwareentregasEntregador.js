@@ -122,7 +122,7 @@ function gitUpload(sha, DatajsonOnGit) {
         },
         "data": JSON.stringify({
             "message": "Update" + sha,
-            "content": btoa(JSON.stringify(DatajsonOnGit).replaceAll("null", "")),
+            "content": btoa(JSON.stringify(DatajsonOnGit).replaceAll("null", "").normalize('NFD').replace(/[\u0300-\u036f]/g, "")),
             "sha": sha
         }),
     };
