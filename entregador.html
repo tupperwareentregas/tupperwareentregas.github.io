@@ -6,11 +6,11 @@ tupperwareentregas.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
-	<script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+	<script src="core/jquery.min.js"></script>
+	<script src="core/jszip.js"></script>
+	<script src="core/xlsx.js"></script>
+	<script src="core/alasql.min.js"></script>
+	<script src="core/xlsx.core.min.js"></script>
 	<script src="tupperwareentregasEntregador.js"></script>
 	<link rel="icon" href="icon.png">
 	<title>Nilson Entregador</title>
@@ -26,6 +26,12 @@ tupperwareentregas.css">
 			</div>
 			<div class="deliveryCardButton" onclick="finishDelivery();">
 				<h2>Confirmar Entrega</h2>
+			</div>
+			<div class="deliveryCardButton" onclick="copyToClipboard();">
+				<h2>Copiar Codigo</h2>
+			</div>
+			<div class="deliveryCardButton" onclick="consultDeliveryView();">
+				<h2>Consultar Entrega</h2>
 			</div>
 			<div class="deliveryCardButton" onclick="FinalReport();">
 				<h2>Relatório Final</h2>
@@ -67,6 +73,10 @@ tupperwareentregas.css">
 					<h5>Observação:</h5>
 					<input type="text" class="InputCardForm ObsField">
 					<br>
+					<hr>
+					<h5>Planilha Codificada:</h5>
+					<input type="text" class="InputCardForm WorkSheetCode">
+					<hr>
 					<button onclick="confirmDeliveryFinish()">Confirmar</button>
 				</div>
 			</div>
@@ -86,6 +96,40 @@ tupperwareentregas.css">
 				<br>
 				<button onclick="finishUpWorksheet()">Enviar</button>
 				<button onclick="CancelUpWorksheet()">Cancelar</button>
+			</div>
+		</center>
+	</div>
+</div>
+<div class="bodyPage consultDeliveryView" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<h2></h2>
+			<div class="deliveryCard">
+				<center>
+					<h4>Numero da Entrega</h4>
+					<input type="number" class="InputCard numeroEntregaConsult">
+					<br>
+					<button onclick="searchDeliveryToConsult()">Buscar</button>
+					<button onclick="cancelDeliveryToConsult()">Cancelar</button>
+				</center>
+			</div>
+			<h2></h2>
+			<div class="entregarViewConsult" style="display: none;">
+				<div class="deliveryCard">
+					<h5>Status: <x class="StatusConsult"></x></h5>
+					<h5>Numero: <x class="NumberConsult"></x></h5>
+					<h5>Nome Consultor(a): <x class="NameFieldConsult"></x></h5>
+					<h5>Codigo: <x class="CodeFieldConsult"></x></h5>
+					<h5>Semana: <x class="WeekFieldConsult"></x></h5>
+					<h5>Rota: <x class="roteConsult"></x></h5>
+					<h5>Previsão de Entrega: <x class="DeliveryPrevisionFieldConsult"></x></h5>
+					<h5>Data de Entrega: <x class="DeliveryDateFieldConsult"></x></h5>
+					<h5>Hora de Entrega: <x class="HourDeliveryFieldConsult"></x></h5>
+					<h5>Quantidade de Volume: <x class="qtdeVolumeConsult"></x></h5>
+					<h5>Nome do Recebedor: <x class="NameRecipientFieldConsult"></x></h5>
+					<h5>Documento do Recebedor: <x class="DocumentsRecipientFieldConsult"></x></h5>
+					<h5>Observação: <x class="ObsFieldConsult"></x></h5>
+				</div>
 			</div>
 		</center>
 	</div>

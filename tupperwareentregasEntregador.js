@@ -1,4 +1,5 @@
 var json_worksheet = {}
+var lastDelivery = ""
 
 function initAnimate() {
 
@@ -15,6 +16,14 @@ function finishDelivery() {
 
     $("html, body").animate({
         scrollTop: ($(".finishDeliveryView").first().offset().top)
+    }, 1000)
+}
+
+function consultDeliveryView() {
+    $(".consultDeliveryView").show()
+
+    $("html, body").animate({
+        scrollTop: ($(".consultDeliveryView").first().offset().top)
     }, 1000)
 }
 
@@ -146,7 +155,7 @@ function searchDeliveryToFinish() {
     if ($(".numeroEntrega").val() != "") {
 
         $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
-            dataJson = JSON.parse(data);
+            dataJson = JSON.parse(data)
             var DataEHorario = new Date();
             var DataAtual = DataEHorario.toLocaleString().split(" ")[0]
             var HorarioAtual = DataEHorario.toLocaleString().split(" ")[1]
@@ -209,7 +218,7 @@ function confirmDeliveryFinish() {
             "DocumentoRecebidor": $(".DocumentsRecipientField").val(),
             "Rota": $(".rote").text(),
             "Semana": $(".WeekField").text(),
-            "observacao": $(".ObsField").val(),
+            "Observacao": $(".ObsField").val(),
             "status": "Entregue"
         }],
         "entregasVisualizacao": [{
@@ -221,7 +230,7 @@ function confirmDeliveryFinish() {
             "DataEntrega": $(".DeliveryDateField").text(),
             "HorarioEntrega": $(".HourDeliveryField").text(),
             "NomeRecebidor": $(".NameRecipientField").val(),
-            "observacao": $(".ObsField").val()
+            "Observacao": $(".ObsField").val()
         }]
     }
 
@@ -229,21 +238,109 @@ function confirmDeliveryFinish() {
 
         var dataJson = JSON.parse(data);
 
+        dataJson = validateLastDelivery(dataJson);
+
         dataJson.entregasBase[parseInt($(".Number").text()) - 1] = jsonToSend.entregasBase[0];
         dataJson.entregasVisualizacao[parseInt($(".Number").text()) - 1] = jsonToSend.entregasVisualizacao[0];
+
+        lastDelivery = btoa(JSON.stringify(dataJson));
 
         uploadInGitHub(dataJson);
     });
 }
 
+function validateLastDelivery(dataJson) {
+
+    var ValidateJson = true
+    var LastDelivery = {}
+
+    if ($(".WorkSheetCode").val() != "") {
+        LastDelivery = JSON.parse(atob($(".WorkSheetCode").val()));
+
+        for (var indice = 0; indice < dataJson.entregasBase.length; indice++) {
+
+            if (LastDelivery.entregasBase[indice].status == dataJson.entregasBase[indice].status) {
+                ValidateJson = true;
+            } else {
+                ValidateJson = false;
+                break;
+            }
+        }
+    }
+
+    if (ValidateJson) {
+        return dataJson;
+    } else {
+        return LastDelivery;
+    }
+}
 
 function FinalReport() {
+
     $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
         var dataJson = JSON.parse(data).entregasBase;
 
-        var opts = [{ sheetid: 'Planilha1', header: true }];
-        var result = alasql('SELECT * INTO XLSX("NilsonEntregas.xlsx",?) FROM ?', [opts, [dataJson]]);
+        downloadWorkSheet(dataJson, "NilsonEntregas");
     })
+}
 
+function downloadWorkSheet(JsonData, NameOfFile) {
 
+    var opts = [{ sheetid: 'Planilha1', header: true }];
+    var result = alasql('SELECT * INTO XLSX("' + NameOfFile + '.xlsx",?) FROM ?', [opts, [JsonData]]);
+}
+
+function searchDeliveryToConsult() {
+    var dataJson = {}
+
+    if ($(".numeroEntregaConsult").val() != "") {
+
+        $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+            dataJson = JSON.parse(data)
+
+            var deliveryItem = dataJson.entregasBase.filter(function(delivery) {
+                return delivery.NumeroSequencial == $(".numeroEntregaConsult").val();
+            });
+
+            if (deliveryItem.length > 0) {
+
+                $(".entregarViewConsult").show(200);
+
+                $(".StatusConsult").text(deliveryItem[0].status);
+                $(".NumberConsult").text(deliveryItem[0].NumeroSequencial);
+                $(".NameFieldConsult").text(deliveryItem[0].Nome);
+                $(".CodeFieldConsult").text(deliveryItem[0].CodigoConsultora);
+                $(".WeekFieldConsult").text(deliveryItem[0].Semana);
+                $(".roteConsult").text(deliveryItem[0].Rota);
+                $(".DeliveryDateFieldConsult").text(deliveryItem[0].DataEntrega);
+                $(".HourDeliveryFieldConsult").text(deliveryItem[0].HorarioEntrega);
+                $(".DeliveryPrevisionFieldConsult").text(deliveryItem[0].Previsao);
+                $(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
+                $(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
+                $(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
+                $(".ObsFieldConsult").text(deliveryItem[0].Observacao);
+
+                $("html, body").animate({
+                    scrollTop: ($(".entregarViewConsult").first().offset().top)
+                }, 1000)
+            } else {
+                alert("Código não encontrado!");
+            }
+
+        });
+    }
+}
+
+function copyToClipboard() {
+
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(lastDelivery).select();
+    document.execCommand("copy");
+    $temp.remove();
+    alert("Codigo Copiado!");
+}
+
+function cancelDeliveryToConsult() {
+    $(".consultDeliveryView").hide(200);
 }
