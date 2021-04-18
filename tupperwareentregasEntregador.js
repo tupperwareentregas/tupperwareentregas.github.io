@@ -243,9 +243,9 @@ function confirmDeliveryFinish() {
         dataJson.entregasBase[parseInt($(".Number").text()) - 1] = jsonToSend.entregasBase[0];
         dataJson.entregasVisualizacao[parseInt($(".Number").text()) - 1] = jsonToSend.entregasVisualizacao[0];
 
-        lastDelivery = btoa(JSON.stringify(dataJson));
+        lastDelivery = LZString.compress(JSON.stringify(dataJson));
 
-        uploadInGitHub(dataJson);
+        //uploadInGitHub(dataJson);
     });
 }
 
@@ -255,7 +255,7 @@ function validateLastDelivery(dataJson) {
     var LastDelivery = {}
 
     if ($(".WorkSheetCode").val() != "") {
-        LastDelivery = JSON.parse(atob($(".WorkSheetCode").val()));
+        LastDelivery = JSON.parse(LZString.decompress($(".WorkSheetCode").val()));
 
         for (var indice = 0; indice < dataJson.entregasBase.length; indice++) {
 
