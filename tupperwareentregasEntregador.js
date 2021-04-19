@@ -243,7 +243,7 @@ function confirmDeliveryFinish() {
         dataJson.entregasBase[parseInt($(".Number").text()) - 1] = jsonToSend.entregasBase[0];
         dataJson.entregasVisualizacao[parseInt($(".Number").text()) - 1] = jsonToSend.entregasVisualizacao[0];
 
-        lastDelivery = btoa(JSON.stringify(dataJson));
+        lastDelivery = dataJson;
 
         //uploadInGitHub(dataJson);
     });
@@ -252,14 +252,12 @@ function confirmDeliveryFinish() {
 function validateLastDelivery(dataJson) {
 
     var ValidateJson = true
-    var LastDelivery = {}
 
-    if ($(".WorkSheetCode").val() != "") {
-        LastDelivery = JSON.parse(atob($(".WorkSheetCode").val()));
+    if (lastDelivery != "") {
 
         for (var indice = 0; indice < dataJson.entregasBase.length; indice++) {
 
-            if (LastDelivery.entregasBase[indice].status == dataJson.entregasBase[indice].status) {
+            if (lastDelivery.entregasBase[indice].status == dataJson.entregasBase[indice].status) {
                 ValidateJson = true;
             } else {
                 ValidateJson = false;
@@ -271,7 +269,8 @@ function validateLastDelivery(dataJson) {
     if (ValidateJson) {
         return dataJson;
     } else {
-        return LastDelivery;
+        alert("Usando os dados recém enviados")
+        return lastDelivery;
     }
 }
 
@@ -329,16 +328,6 @@ function searchDeliveryToConsult() {
 
         });
     }
-}
-
-function copyToClipboard() {
-
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(lastDelivery).select();
-    document.execCommand("copy");
-    $temp.remove();
-    alert("Codigo Copiado!");
 }
 
 function cancelDeliveryToConsult() {
