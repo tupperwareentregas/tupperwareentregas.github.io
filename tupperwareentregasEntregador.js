@@ -245,7 +245,7 @@ function confirmDeliveryFinish() {
 
         lastDelivery = dataJson;
 
-        //uploadInGitHub(dataJson);
+        uploadInGitHub(dataJson);
     });
 }
 
