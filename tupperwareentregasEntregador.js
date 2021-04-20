@@ -63,12 +63,28 @@ var ExcelToJSON = function() {
             var workbook = XLSX.read(data, {
                 type: 'binary'
             });
-            workbook.SheetNames.forEach(function(sheetName) {
-                // Here is your object
-                var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets.Planilha1);
 
-                json_worksheet = XL_row_object;
-            })
+            json_worksheet = []
+
+            for (var i = 0; i < XL_row_object.length; i++) {
+                json_worksheet.push({
+                    "NumeroSequencial": XL_row_object[i].NumeroSequencial == undefined ? "null" : XL_row_object[i].NumeroSequencial,
+                    "CodigoConsultora": XL_row_object[i].CodigoConsultora == undefined ? "null" : XL_row_object[i].CodigoConsultora,
+                    "qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
+                    "Previsao": XL_row_object[i].Previsao == undefined ? "null" : XL_row_object[i].Previsao,
+                    "Nome": XL_row_object[i].Nome == undefined ? "null" : XL_row_object[i].Nome,
+                    "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
+                    "HorarioEntrega": XL_row_object[i].HorarioEntrega == undefined ? "null" : XL_row_object[i].HorarioEntrega,
+                    "NomeRecebidor": XL_row_object[i].NomeRecebidor == undefined ? "null" : XL_row_object[i].NomeRecebidor,
+                    "DocumentoRecebidor": XL_row_object[i].DocumentoRecebidor == undefined ? "null" : XL_row_object[i].DocumentoRecebidor,
+                    "Rota": XL_row_object[i].Rota == undefined ? "null" : XL_row_object[i].Rota,
+                    "Semana": XL_row_object[i].Semana == undefined ? "null" : XL_row_object[i].Semana,
+                    "Observacao": XL_row_object[i].Observacao == undefined ? "null" : XL_row_object[i].Observacao,
+                    "status": XL_row_object[i].status == undefined ? "null" : XL_row_object[i].status
+                })
+            }
+
         };
 
         reader.onerror = function(ex) {
@@ -205,6 +221,36 @@ function cancelDeliveryFinish() {
 
 function confirmDeliveryFinish() {
 
+    $.get("https://api.github.com/repos/tupperwareentregas/tupperwareentregas.github.io/git/refs/heads/main", function(data) {
+
+        var commitURL = data.object.url;
+
+        $.get(commitURL, function(data) {
+
+            var treeURL = data.tree.url;
+
+            $.get(treeURL, function(data) {
+
+                var tree = data.tree;
+
+                for (var i = 0; i < tree.length; i++) {
+                    if (tree[i].path == "data") {
+                        $.get(tree[i].url, function(data) {
+
+                            var TreeFile = data.tree[0].url;
+
+                            getAndUploadJsonFile(TreeFile);
+                        });
+                    }
+                }
+            });
+
+        });
+    });
+}
+
+function getAndUploadJsonFile(url) {
+
     var jsonToSend = {
         "entregasBase": [{
             "NumeroSequencial": $(".Number").text(),
@@ -234,11 +280,9 @@ function confirmDeliveryFinish() {
         }]
     }
 
-    $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
+    $.get(url, function(data) {
 
-        var dataJson = JSON.parse(data);
-
-        dataJson = validateLastDelivery(dataJson);
+        var dataJson = JSON.parse(atob(data.content));
 
         dataJson.entregasBase[parseInt($(".Number").text()) - 1] = jsonToSend.entregasBase[0];
         dataJson.entregasVisualizacao[parseInt($(".Number").text()) - 1] = jsonToSend.entregasVisualizacao[0];
@@ -247,31 +291,6 @@ function confirmDeliveryFinish() {
 
         uploadInGitHub(dataJson);
     });
-}
-
-function validateLastDelivery(dataJson) {
-
-    var ValidateJson = true
-
-    if (lastDelivery != "") {
-
-        for (var indice = 0; indice < dataJson.entregasBase.length; indice++) {
-
-            if (lastDelivery.entregasBase[indice].status == dataJson.entregasBase[indice].status) {
-                ValidateJson = true;
-            } else {
-                ValidateJson = false;
-                break;
-            }
-        }
-    }
-
-    if (ValidateJson) {
-        return dataJson;
-    } else {
-        alert("Usando os dados recém enviados")
-        return lastDelivery;
-    }
 }
 
 function FinalReport() {
