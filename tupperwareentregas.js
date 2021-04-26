@@ -33,7 +33,7 @@ function searchDelivery() {
                 $(".DeliveryDateField").text(deliveryItem[0].DataEntrega);
                 $(".HourDeliveryField").text(deliveryItem[0].HorarioEntrega);
                 $(".NameRecipientField").text(deliveryItem[0].NomeRecebidor);
-                $(".ObsField").text(deliveryItem[0].observacao);
+                $(".ObsField").text(deliveryItem[0].Observacao);
 
                 $("html, body").animate({
                     scrollTop: ($(".deliveryView").first().offset().top)
