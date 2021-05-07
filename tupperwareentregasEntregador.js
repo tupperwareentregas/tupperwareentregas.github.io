@@ -116,7 +116,7 @@ function finishUpWorksheet() {
         var TemporaryJson = []
 
         for (var i = 0; i < Worksheet.length; i++) {
-            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "observacao": Worksheet[i].observacao });
+            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "Observacao": Worksheet[i].Observacao });
         }
 
         DatajsonOnGit.entregasVisualizacao = TemporaryJson
