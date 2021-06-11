@@ -12,6 +12,13 @@ tupperwareentregas.css">
 	<script src="core/alasql.min.js"></script>
 	<script src="core/xlsx.core.min.js"></script>
 	<script src="tupperwareentregasEntregador.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('sw.js')
+				.then(reg => console.info('registered sw', reg))
+				.catch(err => console.error('error registering sw', err));
+			}
+	</script>
 	<link rel="icon" href="icon.png">
 	<title>Nilson Entregador</title>
 	<link rel='manifest' href='/manifest.json'>
