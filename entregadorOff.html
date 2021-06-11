@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="
+tupperwareentregas.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="core/jquery.min.js"></script>
+	<script src="core/jszip.js"></script>
+	<script src="core/xlsx.js"></script>
+	<script src="core/alasql.min.js"></script>
+	<script src="core/xlsx.core.min.js"></script>
+	<script src="tupperwareentregasEntregador.js"></script>
+	<link rel="icon" href="icon.png">
+	<title>Nilson Entregador</title>
+	<link rel='manifest' href='/manifest.json'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#4E517A">
+	<link rel="canonical" href="https://gabrieldss808.github.io/gabrieldss808.github.io/"/>
+</head>
+<body>
+<div class="bodyPage HomeScreen" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<img src="van-de-surf.png" alt="van" height="200">
+			<h2>Tuppeware Nilson Entregador</h2>
+			<div class="deliveryCardButton" onclick="upWorksheet();">
+				<h2>Subir Planilha</h2>
+			</div>
+			<div class="deliveryCardButton" onclick="finishDelivery();">
+				<h2>Confirmar Entrega</h2>
+			</div>
+			<div class="deliveryCardButton" onclick="consultDeliveryView();">
+				<h2>Consultar Entrega</h2>
+			</div>
+			<div class="deliveryCardButton" onclick="FinalReport();">
+				<h2>Relatório Final</h2>
+			</div>
+		</center>
+	</div>
+</div>
+<img class="logoInit" src="van-de-surf.png" alt="van" height="100">
+<div class="bodyPage finishDeliveryView" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<h2></h2>
+			<div class="deliveryCard">
+				<center>
+					<h4>Numero da Entrega</h4>
+					<input type="number" class="InputCard numeroEntrega">
+					<br>
+					<button onclick="searchDeliveryToFinish()">Buscar</button>
+					<button onclick="cancelDeliveryFinish()">Cancelar</button>
+				</center>
+			</div>
+			<h2></h2>
+			<div class="entregarView" style="display: none;">
+				<div class="deliveryCard">
+					<h5>Numero: <x class="Number"></x></h5>
+					<h5>Nome Consultor(a): <x class="NameField"></x></h5>
+					<h5>Codigo: <x class="CodeField"></x></h5>
+					<h5>Semana: <x class="WeekField"></x></h5>
+					<h5>Rota: <x class="rote"></x></h5>
+					<h5>Previsão de Entrega: <x class="DeliveryPrevisionField"></x></h5>
+					<h5>Data de Entrega: <x class="DeliveryDateField"></x></h5>
+					<h5>Hora de Entrega: <x class="HourDeliveryField"></x></h5>
+					<h5>Quantidade de Volume:</h5>
+					<input type="number" class="InputCardForm qtdeVolume">
+					<h5>Nome do Recebedor:</h5>
+					<input type="text" class="InputCardForm NameRecipientField">
+					<h5>Documento do Recebedor:</h5>
+					<input type="number" class="InputCardForm DocumentsRecipientField">
+					<h5>Observação:</h5>
+					<input type="text" class="InputCardForm ObsField">
+					<br>
+					<button onclick="confirmDeliveryFinish()">Confirmar</button>
+				</div>
+			</div>
+		</center>
+	</div>
+</div>
+<div class="bodyPage upWorksheet" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<h2></h2>
+			<div class="cardInput">
+				<h4>Subir Planilha</h4>
+				<input type="file" id="file-upload" class="InputCard WorksheetInput" title="Selecione o arquivo" onchange="alterDescriptions();">
+				<label for="file-upload" class="custom-file-upload">
+				Escolher arquivo
+				</label>
+				<br>
+				<button onclick="finishUpWorksheet()">Enviar</button>
+				<button onclick="CancelUpWorksheet()">Cancelar</button>
+			</div>
+		</center>
+	</div>
+</div>
+<div class="bodyPage consultDeliveryView" style="display: none;">
+	<div class="bodyContentList" id="one">
+		<center>
+			<h2></h2>
+			<div class="deliveryCard">
+				<center>
+					<h4>Numero da Entrega</h4>
+					<input type="number" class="InputCard numeroEntregaConsult">
+					<br>
+					<button onclick="searchDeliveryToConsult()">Buscar</button>
+					<button onclick="cancelDeliveryToConsult()">Cancelar</button>
+				</center>
+			</div>
+			<h2></h2>
+			<div class="entregarViewConsult" style="display: none;">
+				<div class="deliveryCard">
+					<h5>Status: <x class="StatusConsult"></x></h5>
+					<h5>Numero: <x class="NumberConsult"></x></h5>
+					<h5>Nome Consultor(a): <x class="NameFieldConsult"></x></h5>
+					<h5>Codigo: <x class="CodeFieldConsult"></x></h5>
+					<h5>Semana: <x class="WeekFieldConsult"></x></h5>
+					<h5>Rota: <x class="roteConsult"></x></h5>
+					<h5>Previsão de Entrega: <x class="DeliveryPrevisionFieldConsult"></x></h5>
+					<h5>Data de Entrega: <x class="DeliveryDateFieldConsult"></x></h5>
+					<h5>Hora de Entrega: <x class="HourDeliveryFieldConsult"></x></h5>
+					<h5>Quantidade de Volume: <x class="qtdeVolumeConsult"></x></h5>
+					<h5>Nome do Recebedor: <x class="NameRecipientFieldConsult"></x></h5>
+					<h5>Documento do Recebedor: <x class="DocumentsRecipientFieldConsult"></x></h5>
+					<h5>Observação: <x class="ObsFieldConsult"></x></h5>
+				</div>
+			</div>
+		</center>
+	</div>
+</div>
+<script>
+	document.getElementById('file-upload').addEventListener('change', handleFileSelect, false);
+</script>
+<script>
+initAnimate();
+</script>
+</body>
+</html>

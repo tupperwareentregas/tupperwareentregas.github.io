@@ -1,0 +1,19 @@
+{
+    "dir": "ltr",
+    "lang": "br",
+    "name": "Nilson Entregas",
+    "short_name": "NilsonEntregas",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "https://tupperwareentregas.github.io/",
+    "background_color": "#4E517A",
+    "theme_color": "#4E517A",
+    "description": "Entregador de Tupperware",
+    "orientation": "any",
+    "icons": [{
+        "src": "https://tupperwareentregas.github.io/icon.png",
+        "type": "image/png",
+        "sizes": "32x32"
+    }],
+    "url": "https://tupperwareentregas.github.io/"
+}
