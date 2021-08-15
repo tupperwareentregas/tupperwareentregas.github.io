@@ -15,7 +15,7 @@ function searchDelivery() {
     if ($(".codigoConsultora").val() != "") {
 
         $.get("https://raw.githubusercontent.com/tupperwareentregas/tupperwareentregas.github.io/main/data/data.json", function(data) {
-            dataJson = JSON.parse(data).entregasVisualizacao;
+            dataJson = JSON.parse(data).entregasBase;
 
             var deliveryItem = dataJson.filter(function(delivery) {
                 return delivery.CodigoConsultora == $(".codigoConsultora").val();
@@ -25,14 +25,15 @@ function searchDelivery() {
 
                 $(".deliveryView").show(200);
 
-                $(".StatsField").text(deliveryItem[0].status);
+                // $(".StatsField").text(deliveryItem[0].status);
                 $(".NameField").text(deliveryItem[0].Nome);
                 $(".CodeField").text(deliveryItem[0].CodigoConsultora);
                 $(".WeekField").text(deliveryItem[0].Semana);
                 $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao);
-                $(".DeliveryDateField").text(deliveryItem[0].DataEntrega);
-                $(".HourDeliveryField").text(deliveryItem[0].HorarioEntrega);
-                $(".NameRecipientField").text(deliveryItem[0].NomeRecebidor);
+                $(".roteConsult").text(deliveryItem[0].Rota);
+                // $(".DeliveryDateField").text(deliveryItem[0].DataEntrega);
+                // $(".HourDeliveryField").text(deliveryItem[0].HorarioEntrega);
+                // $(".NameRecipientField").text(deliveryItem[0].NomeRecebidor);
                 $(".ObsField").text(deliveryItem[0].Observacao);
 
                 $("html, body").animate({
