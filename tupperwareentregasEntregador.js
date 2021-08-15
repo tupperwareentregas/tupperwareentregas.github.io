@@ -72,7 +72,7 @@ var ExcelToJSON = function() {
                     "NumeroSequencial": XL_row_object[i].NumeroSequencial == undefined ? "null" : XL_row_object[i].NumeroSequencial,
                     "CodigoConsultora": XL_row_object[i].CodigoConsultora == undefined ? "null" : XL_row_object[i].CodigoConsultora,
                     // "qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
-                    "Previsao": XL_row_object[i].Previsao == undefined ? "null" : XL_row_object[i].Previsao,
+                    "Previsao": XL_row_object[i]["Previsao de Entrega"] == undefined ? "null" : XL_row_object[i]["Previsao de Entrega"],
                     "Nome": XL_row_object[i].Nome == undefined ? "null" : XL_row_object[i].Nome,
                     // "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
                     // "HorarioEntrega": XL_row_object[i].HorarioEntrega == undefined ? "null" : XL_row_object[i].HorarioEntrega,
