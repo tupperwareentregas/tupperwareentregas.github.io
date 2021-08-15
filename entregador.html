@@ -24,14 +24,14 @@ tupperwareentregas.css">
 			<div class="deliveryCardButton" onclick="upWorksheet();">
 				<h2>Subir Planilha</h2>
 			</div>
-			<div class="deliveryCardButton" onclick="finishDelivery();">
+			{% comment %} <div class="deliveryCardButton" onclick="finishDelivery();">
 				<h2>Confirmar Entrega</h2>
-			</div>
+			</div> {% endcomment %}
 			<div class="deliveryCardButton" onclick="consultDeliveryView();">
 				<h2>Consultar Entrega</h2>
 			</div>
 			<div class="deliveryCardButton" onclick="FinalReport();">
-				<h2>Relatório Final</h2>
+				<h2>Baixar Planilha</h2>
 			</div>
 		</center>
 	</div>
@@ -109,18 +109,18 @@ tupperwareentregas.css">
 			<h2></h2>
 			<div class="entregarViewConsult" style="display: none;">
 				<div class="deliveryCard">
-					<h5>Status: <x class="StatusConsult"></x></h5>
+					{% comment %} <h5>Status: <x class="StatusConsult"></x></h5> {% endcomment %}
 					<h5>Numero: <x class="NumberConsult"></x></h5>
 					<h5>Nome Consultor(a): <x class="NameFieldConsult"></x></h5>
 					<h5>Codigo: <x class="CodeFieldConsult"></x></h5>
 					<h5>Semana: <x class="WeekFieldConsult"></x></h5>
 					<h5>Rota: <x class="roteConsult"></x></h5>
 					<h5>Previsão de Entrega: <x class="DeliveryPrevisionFieldConsult"></x></h5>
-					<h5>Data de Entrega: <x class="DeliveryDateFieldConsult"></x></h5>
-					<h5>Hora de Entrega: <x class="HourDeliveryFieldConsult"></x></h5>
-					<h5>Quantidade de Volume: <x class="qtdeVolumeConsult"></x></h5>
-					<h5>Nome do Recebedor: <x class="NameRecipientFieldConsult"></x></h5>
-					<h5>Documento do Recebedor: <x class="DocumentsRecipientFieldConsult"></x></h5>
+					{% comment %} <h5>Data de Entrega: <x class="DeliveryDateFieldConsult"></x></h5> {% endcomment %}
+					{% comment %} <h5>Hora de Entrega: <x class="HourDeliveryFieldConsult"></x></h5> {% endcomment %}
+					{% comment %} <h5>Quantidade de Volume: <x class="qtdeVolumeConsult"></x></h5> {% endcomment %}
+					{% comment %} <h5>Nome do Recebedor: <x class="NameRecipientFieldConsult"></x></h5> {% endcomment %}
+					{% comment %} <h5>Documento do Recebedor: <x class="DocumentsRecipientFieldConsult"></x></h5> {% endcomment %}
 					<h5>Observação: <x class="ObsFieldConsult"></x></h5>
 				</div>
 			</div>

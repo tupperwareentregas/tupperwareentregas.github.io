@@ -71,17 +71,17 @@ var ExcelToJSON = function() {
                 json_worksheet.push({
                     "NumeroSequencial": XL_row_object[i].NumeroSequencial == undefined ? "null" : XL_row_object[i].NumeroSequencial,
                     "CodigoConsultora": XL_row_object[i].CodigoConsultora == undefined ? "null" : XL_row_object[i].CodigoConsultora,
-                    "qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
+                    // "qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
                     "Previsao": XL_row_object[i].Previsao == undefined ? "null" : XL_row_object[i].Previsao,
                     "Nome": XL_row_object[i].Nome == undefined ? "null" : XL_row_object[i].Nome,
-                    "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
-                    "HorarioEntrega": XL_row_object[i].HorarioEntrega == undefined ? "null" : XL_row_object[i].HorarioEntrega,
-                    "NomeRecebidor": XL_row_object[i].NomeRecebidor == undefined ? "null" : XL_row_object[i].NomeRecebidor,
-                    "DocumentoRecebidor": XL_row_object[i].DocumentoRecebidor == undefined ? "null" : XL_row_object[i].DocumentoRecebidor,
+                    // "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
+                    // "HorarioEntrega": XL_row_object[i].HorarioEntrega == undefined ? "null" : XL_row_object[i].HorarioEntrega,
+                    // "NomeRecebidor": XL_row_object[i].NomeRecebidor == undefined ? "null" : XL_row_object[i].NomeRecebidor,
+                    // "DocumentoRecebidor": XL_row_object[i].DocumentoRecebidor == undefined ? "null" : XL_row_object[i].DocumentoRecebidor,
                     "Rota": XL_row_object[i].Rota == undefined ? "null" : XL_row_object[i].Rota,
                     "Semana": XL_row_object[i].Semana == undefined ? "null" : XL_row_object[i].Semana,
                     "Observacao": XL_row_object[i].Observacao == undefined ? "null" : XL_row_object[i].Observacao,
-                    "status": XL_row_object[i].status == undefined ? "null" : XL_row_object[i].status
+                    // "status": XL_row_object[i].status == undefined ? "null" : XL_row_object[i].status
                 })
             }
 
