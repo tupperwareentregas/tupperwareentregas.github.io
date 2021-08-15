@@ -113,13 +113,13 @@ function finishUpWorksheet() {
 
         DatajsonOnGit.entregasBase = Worksheet
 
-        var TemporaryJson = []
+        // var TemporaryJson = []
 
-        for (var i = 0; i < Worksheet.length; i++) {
-            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "Observacao": Worksheet[i].Observacao });
-        }
+        // for (var i = 0; i < Worksheet.length; i++) {
+        //     TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "Observacao": Worksheet[i].Observacao });
+        // }
 
-        DatajsonOnGit.entregasVisualizacao = TemporaryJson
+        // DatajsonOnGit.entregasVisualizacao = TemporaryJson
 
         uploadInGitHub(DatajsonOnGit);
     })
@@ -324,18 +324,18 @@ function searchDeliveryToConsult() {
 
                 $(".entregarViewConsult").show(200);
 
-                $(".StatusConsult").text(deliveryItem[0].status);
+                // $(".StatusConsult").text(deliveryItem[0].status);
                 $(".NumberConsult").text(deliveryItem[0].NumeroSequencial);
                 $(".NameFieldConsult").text(deliveryItem[0].Nome);
                 $(".CodeFieldConsult").text(deliveryItem[0].CodigoConsultora);
                 $(".WeekFieldConsult").text(deliveryItem[0].Semana);
                 $(".roteConsult").text(deliveryItem[0].Rota);
-                $(".DeliveryDateFieldConsult").text(deliveryItem[0].DataEntrega);
-                $(".HourDeliveryFieldConsult").text(deliveryItem[0].HorarioEntrega);
+                // $(".DeliveryDateFieldConsult").text(deliveryItem[0].DataEntrega);
+                // $(".HourDeliveryFieldConsult").text(deliveryItem[0].HorarioEntrega);
                 $(".DeliveryPrevisionFieldConsult").text(deliveryItem[0].Previsao);
-                $(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
-                $(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
-                $(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
+                // $(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
+                // $(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
+                // $(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
                 $(".ObsFieldConsult").text(deliveryItem[0].Observacao);
 
                 $("html, body").animate({
