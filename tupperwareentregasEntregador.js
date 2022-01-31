@@ -71,7 +71,7 @@ var ExcelToJSON = function() {
                 json_worksheet.push({
                     "NumeroSequencial": XL_row_object[i].NumeroSequencial == undefined ? "null" : XL_row_object[i].NumeroSequencial,
                     "CodigoConsultora": XL_row_object[i].CodigoConsultora == undefined ? "null" : XL_row_object[i].CodigoConsultora,
-                    "qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
+                    //"qtdeVolume": XL_row_object[i].qtdeVolume == undefined ? "null" : XL_row_object[i].qtdeVolume,
                     "Previsao": XL_row_object[i].Previsao == undefined ? "null" : XL_row_object[i].Previsao,
                     "Nome": XL_row_object[i].Nome == undefined ? "null" : XL_row_object[i].Nome,
                     "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
@@ -193,7 +193,7 @@ function searchDeliveryToFinish() {
                     $(".DeliveryDateField").text(DataAtual)
                     $(".HourDeliveryField").text(HorarioAtual)
                     $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao)
-                    $(".qtdeVolume").val("");
+                        //$(".qtdeVolume").val("");
                     $(".NameRecipientField").val("");
                     $(".DocumentsRecipientField").val("");
                     $(".ObsField").val("");
@@ -255,7 +255,7 @@ function getAndUploadJsonFile(url) {
         "entregasBase": [{
             "NumeroSequencial": $(".Number").text(),
             "CodigoConsultora": $(".CodeField").text(),
-            "qtdeVolume": $(".qtdeVolume").val(),
+            //"qtdeVolume": $(".qtdeVolume").val(),
             "Previsao": $(".DeliveryPrevisionField").text(),
             "Nome": $(".NameField").text(),
             "DataEntrega": $(".DeliveryDateField").text(),
@@ -333,7 +333,7 @@ function searchDeliveryToConsult() {
                 $(".DeliveryDateFieldConsult").text(deliveryItem[0].DataEntrega);
                 $(".HourDeliveryFieldConsult").text(deliveryItem[0].HorarioEntrega);
                 $(".DeliveryPrevisionFieldConsult").text(deliveryItem[0].Previsao);
-                $(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
+                //$(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
                 $(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
                 $(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
                 $(".ObsFieldConsult").text(deliveryItem[0].Observacao);
