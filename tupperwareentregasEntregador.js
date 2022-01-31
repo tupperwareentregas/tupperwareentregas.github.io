@@ -76,8 +76,8 @@ var ExcelToJSON = function() {
                     "Nome": XL_row_object[i].Nome == undefined ? "null" : XL_row_object[i].Nome,
                     "DataEntrega": XL_row_object[i].DataEntrega == undefined ? "null" : XL_row_object[i].DataEntrega,
                     "HorarioEntrega": XL_row_object[i].HorarioEntrega == undefined ? "null" : XL_row_object[i].HorarioEntrega,
-                    "NomeRecebidor": XL_row_object[i].NomeRecebidor == undefined ? "null" : XL_row_object[i].NomeRecebidor,
-                    "DocumentoRecebidor": XL_row_object[i].DocumentoRecebidor == undefined ? "null" : XL_row_object[i].DocumentoRecebidor,
+                    //"NomeRecebidor": XL_row_object[i].NomeRecebidor == undefined ? "null" : XL_row_object[i].NomeRecebidor,
+                    //"DocumentoRecebidor": XL_row_object[i].DocumentoRecebidor == undefined ? "null" : XL_row_object[i].DocumentoRecebidor,
                     "Rota": XL_row_object[i].Rota == undefined ? "null" : XL_row_object[i].Rota,
                     "Semana": XL_row_object[i].Semana == undefined ? "null" : XL_row_object[i].Semana,
                     "Observacao": XL_row_object[i].Observacao == undefined ? "null" : XL_row_object[i].Observacao,
@@ -116,7 +116,7 @@ function finishUpWorksheet() {
         var TemporaryJson = []
 
         for (var i = 0; i < Worksheet.length; i++) {
-            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "NomeRecebidor": Worksheet[i].NomeRecebidor, "Observacao": Worksheet[i].Observacao });
+            TemporaryJson.push({ "status": Worksheet[i].status, "Nome": Worksheet[i].Nome, "CodigoConsultora": Worksheet[i].CodigoConsultora, "Semana": Worksheet[i].Semana, "Previsao": Worksheet[i].Previsao, "DataEntrega": Worksheet[i].DataEntrega, "HorarioEntrega": Worksheet[i].HorarioEntrega, "Observacao": Worksheet[i].Observacao });
         }
 
         DatajsonOnGit.entregasVisualizacao = TemporaryJson
@@ -194,8 +194,8 @@ function searchDeliveryToFinish() {
                     $(".HourDeliveryField").text(HorarioAtual)
                     $(".DeliveryPrevisionField").text(deliveryItem[0].Previsao)
                         //$(".qtdeVolume").val("");
-                    $(".NameRecipientField").val("");
-                    $(".DocumentsRecipientField").val("");
+                        //$(".NameRecipientField").val("");
+                        //$(".DocumentsRecipientField").val("");
                     $(".ObsField").val("");
 
                     $("html, body").animate({
@@ -260,8 +260,8 @@ function getAndUploadJsonFile(url) {
             "Nome": $(".NameField").text(),
             "DataEntrega": $(".DeliveryDateField").text(),
             "HorarioEntrega": $(".HourDeliveryField").text(),
-            "NomeRecebidor": $(".NameRecipientField").val(),
-            "DocumentoRecebidor": $(".DocumentsRecipientField").val(),
+            //"NomeRecebidor": $(".NameRecipientField").val(),
+            //"DocumentoRecebidor": $(".DocumentsRecipientField").val(),
             "Rota": $(".rote").text(),
             "Semana": $(".WeekField").text(),
             "Observacao": $(".ObsField").val(),
@@ -275,7 +275,7 @@ function getAndUploadJsonFile(url) {
             "Previsao": $(".DeliveryPrevisionField").text(),
             "DataEntrega": $(".DeliveryDateField").text(),
             "HorarioEntrega": $(".HourDeliveryField").text(),
-            "NomeRecebidor": $(".NameRecipientField").val(),
+            //"NomeRecebidor": $(".NameRecipientField").val(),
             "Observacao": $(".ObsField").val()
         }]
     }
@@ -334,8 +334,8 @@ function searchDeliveryToConsult() {
                 $(".HourDeliveryFieldConsult").text(deliveryItem[0].HorarioEntrega);
                 $(".DeliveryPrevisionFieldConsult").text(deliveryItem[0].Previsao);
                 //$(".qtdeVolumeConsult").text(deliveryItem[0].qtdeVolume);
-                $(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
-                $(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
+                //$(".NameRecipientFieldConsult").text(deliveryItem[0].NomeRecebidor);
+                //$(".DocumentsRecipientFieldConsult").text(deliveryItem[0].DocumentoRecebidor);
                 $(".ObsFieldConsult").text(deliveryItem[0].Observacao);
 
                 $("html, body").animate({
